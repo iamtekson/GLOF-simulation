@@ -1,28 +1,5 @@
 #!/bin/bash
 
-##############################################################################
-#
-# SCRIPT:       grass7.install.sh
-#
-# AUTHORS:      Matthias Benedikt, Jan-Thomas Fischer,
-#               Andreas Huber, Martin Mergili
-#
-# PURPOSE:      Installation script for GRASS 7 (dev package), R
-#               and R packages, and pillow on Ubuntu 18.04 
-#
-# COPYRIGHT:    (c) 2010 - 2021 by the authors
-#               (c) 2020 - 2021 by the University of Graz
-#               (c) 2010 - 2021 by the BOKU University, Vienna
-#               (c) 2015 - 2020 by the University of Vienna
-#               (c) 2016 - 2021 by the BFW, Innsbruck
-#
-# VERSION:      20210530 (30 May 2021)
-#
-#               This program is free software under the GNU General Public
-#               License (>=v2).
-#
-##############################################################################
-
 #Making sure that Python 3 is used
 sudo apt install python3-pip -y
 echo "alias python=python3" >> ~/.bash_aliases
