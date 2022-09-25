@@ -7,5 +7,36 @@ For the GLOF simulation, we have used [Mergili et. al., 2014](https://gmd.copern
 
 ## Data preparation
 
+To prepare the data, open your grass GIS by typing `grass` on terminal and follow the following steps,
+
+1. Create new location on the project directory with `generic cartesian coordinate system`
+2. Click on `PERMENANT` and `switch mapset`
+3. Follow the following steps in terminal,
+
+```sh
+# Change the directory
+cd path/to/input/data/directory
+
+# Change data files to grass format
+r.in.gdal -o input=elevation.tif output=elevation
+
+# Check the region 
+g.region -p
+
+# Change the default region
+g.region -s rast=elevation
+
+# Change all other rasater data to grass format using r.in.gdal command
+r.in.gdal -o input=hrelease.tif output=hrelease
+```
 
 ## Simulation using r.avaflow
+
+To start the simulation with r.avaflow, run the following command in terminal,
+
+```sh
+# Basic run
+r.avaflow prefix=1 phases=m elevation=elevation hrelease1=hrelease1 hrelease2=hrelease2 
+```
+
+To know more about the r.avaflow input, check the [official documentation of r.avaflow](https://www.landslidemodels.org/r.avaflow/manual.php).
