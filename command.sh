@@ -1,32 +1,85 @@
-r.in.gdal -o --overwrite input=elevation1.tif output=elevation1
-r.in.gdal -o --overwrite input=elevation2.tif output=elevation2
-r.in.gdal -o --overwrite input=elevation3.tif output=elevation3
-r.in.gdal -o --overwrite input=elevation4.tif output=elevation4
-r.in.gdal -o --overwrite input=elevation5.tif output=elevation5
-r.in.gdal -o --overwrite input=elevation6.tif output=elevation6
-r.in.gdal -o --overwrite input=elevation7.tif output=elevation7
+#!/bin/sh
 
-
-r.in.gdal -o --overwrite input=ls1_final.tif output=ls1
-r.in.gdal -o --overwrite input=ls2_final.tif output=ls2
-r.in.gdal -o --overwrite input=ls3_final.tif output=ls3
-r.in.gdal -o --overwrite input=ls4_final.tif output=ls4
-r.in.gdal -o --overwrite input=ls5_final.tif output=ls5
-r.in.gdal -o --overwrite input=ls6_final.tif output=ls6
-r.in.gdal -o --overwrite input=ls7_final.tif output=ls7
-
+# Lake map (m)
 r.in.gdal -o --overwrite input=hrelease3.tif output=hrelease3
 
-g.region -s rast=elevation1
 
+# Elevation map (m)
+r.in.gdal -o --overwrite input=elevation11.tif output=elevation11
+r.in.gdal -o --overwrite input=elevation12.tif output=elevation12
+r.in.gdal -o --overwrite input=elevation13.tif output=elevation13
+r.in.gdal -o --overwrite input=elevation14.tif output=elevation14
+
+r.in.gdal -o --overwrite input=elevation21.tif output=elevation21
+r.in.gdal -o --overwrite input=elevation22.tif output=elevation22
+r.in.gdal -o --overwrite input=elevation23.tif output=elevation23
+r.in.gdal -o --overwrite input=elevation24.tif output=elevation24
+
+r.in.gdal -o --overwrite input=elevation31.tif output=elevation31
+r.in.gdal -o --overwrite input=elevation32.tif output=elevation32
+r.in.gdal -o --overwrite input=elevation33.tif output=elevation33
+r.in.gdal -o --overwrite input=elevation34.tif output=elevation34
+
+
+#Landslide maps (m)
+r.in.gdal -o --overwrite input=ls11.tif output=ls11
+r.in.gdal -o --overwrite input=ls12.tif output=ls12
+r.in.gdal -o --overwrite input=ls13.tif output=ls13
+r.in.gdal -o --overwrite input=ls14.tif output=ls14
+
+r.in.gdal -o --overwrite input=ls21.tif output=ls21
+r.in.gdal -o --overwrite input=ls22.tif output=ls22
+r.in.gdal -o --overwrite input=ls23.tif output=ls23
+r.in.gdal -o --overwrite input=ls24.tif output=ls24
+
+r.in.gdal -o --overwrite input=ls31.tif output=ls31
+r.in.gdal -o --overwrite input=ls32.tif output=ls32
+r.in.gdal -o --overwrite input=ls33.tif output=ls33
+r.in.gdal -o --overwrite input=ls34.tif output=ls34
+
+
+# Set the region of the grass database to the elevation map
+g.region -s rast=elevation11
+
+
+# Printout the region
 g.region -p
 
-r.avaflow prefix=1 phases=m elevation=elevation1 hrelease1=ls1 hrelease3=hrelease3 orthophoto=orthophoto.tif hydrocoords=500851,5581936,100,180,501253,5581693,100,180,501830,5581550,100,180
-r.avaflow prefix=2 phases=m elevation=elevation2 hrelease1=ls2 hrelease3=hrelease3 hydrocoords=500851,5581936,100,180,501253,5581693,100,180,501830,5581550,100,180
-r.avaflow prefix=3 phases=m elevation=elevation3 hrelease1=ls3 hrelease3=hrelease3 hydrocoords=500851,5581936,100,180,501253,5581693,100,180,501830,5581550,100,180
-r.avaflow prefix=4 phases=m elevation=elevation4 hrelease1=ls4 hrelease3=hrelease3 hydrocoords=500851,5581936,100,180,501253,5581693,100,180,501830,5581550,100,180
-r.avaflow prefix=5 phases=m elevation=elevation5 hrelease1=ls5 hrelease3=hrelease3 hydrocoords=500851,5581936,100,180,501253,5581693,100,180,501830,5581550,100,180
 
-r.avaflow prefix=6 phases=m elevation=elevation6 hrelease1=ls6 hrelease3=hrelease3 hydrocoords=500851,5581936,100,180,501253,5581693,100,180,501830,5581550,100,180
-r.avaflow prefix=7 phases=m elevation=elevation7 hrelease1=ls7 hrelease3=hrelease3 time=10,1000 hydrocoords=500851,5581936,100,180,501253,5581693,100,180,501830,5581550,100,180
+#########################################################
+############# Hydrocoordinates ##########################
+# 250m # 500753,5581906
+# 500m # 500977,5581969
+# 750m # 501141,5581815
+# 1000m # 501242,5581614
+# 1250m # 501456,5581594
+# 1500m # 501690,5581557
+# 1750m # 501919,5581606
+# 2000m # 502128,5581708
+# 3000m # 502996,5581459
+
+# the 250, 500, 750, 1000, 2000 hydrocoordinates are used for the hydrological model
+#########################################################
+hydrocoords=500753,5581906,100,180,500977,5581969,100,180,501141,5581815,100,180,501242,5581614,100,180,502128,5581708,100,180
+
+
+# Set of simulation to run the model
+r.avaflow prefix=31 phases=m elevation=elevation31 hrelease1=ls31 hrelease3=hrelease3 controls=0,0,0,1,0,0 hydrocoords=$hydrocoords
+r.avaflow prefix=32 phases=m elevation=elevation32 hrelease1=ls32 hrelease3=hrelease3 controls=0,0,0,1,0,0 hydrocoords=$hydrocoords
+r.avaflow prefix=33 phases=m elevation=elevation33 hrelease1=ls33 hrelease3=hrelease3 controls=0,0,0,1,0,0 hydrocoords=$hydrocoords
+r.avaflow prefix=34 phases=m elevation=elevation34 hrelease1=ls34 hrelease3=hrelease3 controls=0,0,0,1,0,0 hydrocoords=$hydrocoords
+
+r.avaflow prefix=21 phases=m elevation=elevation21 hrelease1=ls21 hrelease3=hrelease3 controls=0,0,0,1,0,0 hydrocoords=$hydrocoords
+r.avaflow prefix=22 phases=m elevation=elevation22 hrelease1=ls22 hrelease3=hrelease3 controls=0,0,0,1,0,0 hydrocoords=$hydrocoords
+r.avaflow prefix=23 phases=m elevation=elevation23 hrelease1=ls23 hrelease3=hrelease3 controls=0,0,0,1,0,0 hydrocoords=$hydrocoords
+r.avaflow prefix=24 phases=m elevation=elevation24 hrelease1=ls24 hrelease3=hrelease3 controls=0,0,0,1,0,0 hydrocoords=$hydrocoords
+
+r.avaflow prefix=11 phases=m elevation=elevation11 hrelease1=ls11 hrelease3=hrelease3 controls=0,0,0,1,0,0 hydrocoords=$hydrocoords
+r.avaflow prefix=12 phases=m elevation=elevation12 hrelease1=ls12 hrelease3=hrelease3 controls=0,0,0,1,0,0 hydrocoords=$hydrocoords 
+r.avaflow prefix=13 phases=m elevation=elevation13 hrelease1=ls13 hrelease3=hrelease3 controls=0,0,0,1,0,0 hydrocoords=$hydrocoords
+r.avaflow prefix=14 phases=m elevation=elevation14 hrelease1=ls14 hrelease3=hrelease3 controls=0,0,0,1,0,0 hydrocoords=$hydrocoords
+
+
+
+
 
