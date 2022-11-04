@@ -20,6 +20,7 @@ r.in.gdal -o --overwrite input=elevation/elevation33.tif output=elevation33
 r.in.gdal -o --overwrite input=elevation/elevation41.tif output=elevation41
 
 
+
 #Landslide maps (m)
 r.in.gdal -o --overwrite input=ls/ls11.tif output=ls11
 r.in.gdal -o --overwrite input=ls/ls12.tif output=ls12
@@ -51,7 +52,7 @@ g.region -p
 # 1000m # 501242,5581614,1000,315
 # 2000m # 502128,5581708,2000,180
 #########################################################
-hydrocoords=500977,5581969,1000,78.69,501242,5581614,1000,315,501141,5581815,100,180,502128,5581708,2000,180
+hydrocoords=500977,5581969,1000,78.69,501242,5581614,1000,315,502128,5581708,2000,180
 
 
 # Set of simulation to run the model
