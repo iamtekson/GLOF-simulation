@@ -16,7 +16,7 @@ The repository contain the GLOF methodology, code, literature review and steps t
   * rasters (all the required input raster maps, i.e., landslide rasters, lake raster, elevation rasters)
   * shp (vector representation of the landslide and lake boundary)
 
-** 5. RESULTS:** All the results generated from r.avaflow software and notebooks to generate the hydrographs for report.
+**5. RESULTS:** All the results generated from r.avaflow software and notebooks to generate the hydrographs for report.
   * notebooks (`python` code for generating the graphs for report)
   * r.avaflow_results (all the result generated from r.avaflow software. It contain `.asc` files, `.txt` files and some `.gif` files for animation of the landslide-lake interaction)
 
