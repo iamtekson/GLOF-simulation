@@ -1,6 +1,8 @@
 # GLOF-simulation
 The repository contain the GLOF methodology, code, literature review and steps to produce a result.
 
+![r.avaflow simulation (landslide-lake interaction)](https://github.com/iamtekson/GLOF-simulation/blob/main/RESULTS/r.avaflow_results/13_results/13_plots/13_hflow_map.gif "r.avaflow result")
+
 ## What is included in this repo?
 
 **1. SOFTWARE:** The software folder includes the r.avaflow version 2.4. The software originally available in [r.avaflow official website](https://www.landslidemodels.org/r.avaflow/software.php).
