@@ -1,10 +1,10 @@
 # Installation of software
 
-The installation of software is tested on Ubuntu 20.04 version but it supposed to work on any linux machine. I have used r.avaflow 2.4 version of software. The code for this version is availbe within this reposatory [here](https://github.com/iamtekson/GLOF-simulation/tree/main/r.avaflow).The software installation guide is as below,
+The installation of software is tested on Ubuntu 20.04 version but it supposed to work on any linux machine. I have used r.avaflow 2.4 version of software. The code for this version is availbe within this reposatory [here](https://github.com/iamtekson/GLOF-simulation/tree/main/SOFTWARE).The software installation guide is as below,
 
 ## Grass gis and R installation
 
-The installation document is available here: [`r.avaflow/grass7.install.sh`](https://github.com/iamtekson/GLOF-simulation/tree/main/r.avaflow/grass.install.sh). The file can be exicuted as below,
+The installation document is available here: [`r.avaflow/grass7.install.sh`](https://github.com/iamtekson/GLOF-simulation/blob/main/SOFTWARE/grass.install.sh). The file can be exicuted as below,
 
 > For me grass 8.2 version was installed.
 
