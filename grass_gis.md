@@ -16,8 +16,9 @@ g.list vect
 r.info raster_layer
 v.info vector_layer
 
-# create new location
-g.proj -c location=miller_lake -t datumtrans=1
+# create a new location with cartesian coordinate system (XY)
+#g.proj -c location=miller_lake -t datumtrans=1
+g.proj -c proj4='+proj=cart +datum=WGS84 +units=m' location=newloc  
 
 # change the new location
 g.mapset mapset=PERMANENT location=miller_lake
