@@ -21,5 +21,11 @@ g.proj -c location=miller_lake -t datumtrans=1
 
 # change the new location
 g.mapset mapset=PERMANENT location=miller_lake
+
+# Check the region 
+g.region -p
+
+# Change the default region
+g.region -s rast=elevation
 ```
 
